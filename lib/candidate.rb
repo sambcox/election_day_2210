@@ -5,4 +5,8 @@ class Candidate
     @party = data[:party]
     @votes = 0
   end
+
+  def vote_for!
+    @votes += 1
+  end
 end
