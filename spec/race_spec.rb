@@ -32,4 +32,21 @@ RSpec.describe Race do
 
     expect(race.candidates).to eq([candidate1, candidate2])
   end
+
+  it 'is open by default' do
+    race = Race.new("Texas Governor")
+    candidate1 = race.register_candidate!({name: "Diana D", party: :democrat})
+    candidate2 = race.register_candidate!({name: "Roberto R", party: :republican})
+
+    expect(race.open?).to eq true
+  end
+
+  it 'can be closed' do
+    race = Race.new("Texas Governor")
+    candidate1 = race.register_candidate!({name: "Diana D", party: :democrat})
+    candidate2 = race.register_candidate!({name: "Roberto R", party: :republican})
+    race.close!
+
+    expect(race.open?).to eq false
+  end
 end
