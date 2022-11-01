@@ -7,4 +7,10 @@ RSpec.describe Race do
 
     expect(race).to be_a(Race)
   end
+
+  it 'has an office' do
+    race = Race.new("Texas Governor")
+
+    expect(race.office).to eq("Texas Governor")
+  end
 end
