@@ -19,4 +19,14 @@ class Race
   def close!
     @open = false
   end
+
+  def winner
+    if open?
+      return false
+    else
+      @candidates.sort_by do |candidate|
+        candidate.votes
+      end.last
+    end
+  end
 end
