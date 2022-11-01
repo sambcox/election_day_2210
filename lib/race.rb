@@ -29,4 +29,10 @@ class Race
       end.last
     end
   end
+
+  def tie?
+    if !open?
+      @candidates.find_all { |candidate| candidate.votes == winner.votes}.length > 1
+    end
+  end
 end
