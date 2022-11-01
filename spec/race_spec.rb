@@ -72,4 +72,15 @@ RSpec.describe Race do
 
     expect(race.winner).to eq(candidate2)
   end
+
+  it 'has a winner except when open' do
+    race = Race.new("Texas Governor")
+    candidate1 = race.register_candidate!({name: "Diana D", party: :democrat})
+    candidate2 = race.register_candidate!({name: "Roberto R", party: :republican})
+    50.times {candidate1.vote_for!}
+    50.times {candidate2.vote_for!}
+    race.close!
+
+    expect(race.tie?).to eq true
+  end
 end
