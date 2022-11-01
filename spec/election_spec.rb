@@ -14,4 +14,10 @@ RSpec.describe Election do
 
     expect(election.year).to eq('2022')
   end
+
+  it 'has no races by default' do
+    election = Election.new('2022')
+
+    expect(election.races).to eq([])
+  end
 end
