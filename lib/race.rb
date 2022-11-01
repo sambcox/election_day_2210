@@ -21,7 +21,7 @@ class Race
   end
 
   def winner
-    if open?
+    if tie? || open?
       return false
     else
       @candidates.sort_by do |candidate|
@@ -32,7 +32,7 @@ class Race
 
   def tie?
     if !open?
-      @candidates.find_all { |candidate| candidate.votes == winner.votes}.length > 1
+      @candidates.map { |candidate| candidate.votes}.uniq.length < @candidates.length
     end
   end
 end

@@ -79,10 +79,12 @@ RSpec.describe Election do
     candidate5 = race2.register_candidate!({name: "Ida I", party: :independent})
     4.times {candidate1.vote_for!}
     1.times {candidate2.vote_for!}
-    10.times {candidate3.vote_for!}
+    2.times {candidate3.vote_for!}
     6.times {candidate4.vote_for!}
     6.times {candidate5.vote_for!}
+    race1.close!
+    race2.close!
 
-    expect(election.winners).to eq([candidate1, candidate3])
+    expect(election.winners).to eq([candidate1])
   end
 end
