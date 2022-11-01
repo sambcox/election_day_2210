@@ -8,4 +8,10 @@ RSpec.describe Election do
 
     expect(election).to be_a(Election)
   end
+
+  it 'has a year' do
+    election = Election.new('2022')
+
+    expect(election.year).to eq('2022')
+  end
 end
