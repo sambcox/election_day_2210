@@ -13,4 +13,10 @@ RSpec.describe Race do
 
     expect(race.office).to eq("Texas Governor")
   end
+
+  it 'has no candidates by default' do
+    race = Race.new("Texas Governor")
+
+    expect(race.candidates).to eq([])
+  end
 end
