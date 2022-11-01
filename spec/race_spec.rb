@@ -19,4 +19,12 @@ RSpec.describe Race do
 
     expect(race.candidates).to eq([])
   end
+
+  it 'can add candidates' do
+    race = Race.new("Texas Governor")
+    candidate1 = race.register_candidate!({name: "Diana D", party: :democrat})
+
+    expect(candidate1).to be_a(Candidate)
+    expect(race.candidates).to eq([candidate1])
+  end
 end
