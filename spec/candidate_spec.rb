@@ -2,8 +2,14 @@ require "./lib/candidate"
 
 RSpec.describe Candidate do
   it 'exists' do
-    can = Candidate.new({name: "Diana D", party: :democrat})
+    diana = Candidate.new({name: "Diana D", party: :democrat})
 
-    expect(can).to be_a(Candidate)
+    expect(diana).to be_a(Candidate)
+  end
+
+  it 'has a name' do
+    diana = Candidate.new({name: "Diana D", party: :democrat})
+
+    expect(diana.name).to eq("Diana D")
   end
 end
