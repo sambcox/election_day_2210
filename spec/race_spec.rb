@@ -61,6 +61,6 @@ RSpec.describe Race do
 
     race.close!
 
-    expect(race.open?).to eq false
+    expect(race.winner).to eq(candidate1)
   end
 end
