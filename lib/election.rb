@@ -20,4 +20,8 @@ class Election
     end
     overall_count
   end
+
+  def winners
+    @races.map { |race| race.winner}
+  end
 end
